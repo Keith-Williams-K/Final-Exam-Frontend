@@ -8,6 +8,16 @@ import BrowseGroups from './pages/BrowseGroups';
 import CreateGroup from './pages/CreateGroup';
 import GroupDetail from './pages/GroupDetail';
 
+// Top-level application component
+// Mounts the router, global `Navbar`, and declares all client routes.
+// Routes:
+//  - `/login` and `/register` for authentication
+//  - `/dashboard` for user home
+//  - `/browse` to list groups
+//  - `/groups/create` to create a new group
+//  - `/groups/:id` to view group details
+// Root (`/`) redirects to `/login`.
+
 function App() {
   return (
     <Router>

@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
+// Register page
+// - Collects user profile fields and creates an account via `/api/auth/register`
+// - Ensures passwords match before sending request
+// - On success stores `token` and `user` then navigates to `/dashboard`
+
 const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({

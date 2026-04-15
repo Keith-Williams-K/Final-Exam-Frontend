@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// SessionForm
+// - Reusable form used to schedule a new study session for a group
+// - Expects `groupId`, `onSessionCreated` (callback) and `onCancel`
+// - Sends authenticated POST to `/api/sessions/:groupId`
+
 const SessionForm = ({ groupId, onSessionCreated, onCancel }) => {
     const [formData, setFormData] = useState({
         title: '',
@@ -37,6 +42,7 @@ const SessionForm = ({ groupId, onSessionCreated, onCancel }) => {
         }
     };
 
+    // Minimum date for scheduling is tomorrow (prevents same-day scheduling)
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const minDate = tomorrow.toISOString().split('T')[0];

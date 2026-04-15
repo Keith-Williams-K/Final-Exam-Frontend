@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
+// Navbar component
+// - Shows navigation links when a user is authenticated (presence of `token`)
+// - Reads `user` from localStorage to display the current user's name
+// - Provides `Logout` which clears storage and navigates to `/login`
+
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,8 +18,10 @@ const Navbar = () => {
     navigate('/login');
   };
 
+  // If there is no auth token we do not render the navbar (user must login)
   if (!token) return null;
 
+  // Helper to mark the active route in the nav
   const isActive = (path) => location.pathname === path;
 
   return (

@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
+// Login page
+// - Collects email and password and sends to `/api/auth/login`
+// - On success stores `token` and `user` in localStorage and redirects to `/dashboard`
+
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: '', password: '' });

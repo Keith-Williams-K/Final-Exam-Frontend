@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+// CreateGroup
+// - Form to create a new study group. Requires authentication token.
+// - Posts to `/api/groups` and navigates to the new group's detail page on success.
+
 const CreateGroup = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ name: '', course: '', description: '', location: '' });
@@ -23,7 +27,8 @@ const CreateGroup = () => {
       headers: { Authorization: `Bearer ${token}` }
     });
     
-    // Wait a moment for database to update
+    // After creating the group navigate to its detail page.
+    // A short timeout is used to allow the backend to finish any async work.
     setTimeout(() => {
       navigate(`/groups/${res.data.group.id}`);
     }, 500);

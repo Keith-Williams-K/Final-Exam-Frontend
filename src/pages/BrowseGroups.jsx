@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+// BrowseGroups
+// - Fetches all study groups from the API and displays them in a grid
+// - Provides a link to create a new group and to each group's detail page
+
 const BrowseGroups = () => {
   const [groups, setGroups] = useState([]);
   const [loading, setLoading] = useState(true);
